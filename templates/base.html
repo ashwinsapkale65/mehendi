@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+      .phone-call {
+        width: 50px;
+        height: 50px;
+        left: 20px;
+        bottom: 20px;
+        background: #10b418;
+        position: fixed;
+        text-align: center;
+        color: #ffffff;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 99;
+        display: inline-block;
+        line-height: 65px;
+      }
+      
+      .phone-call:before {
+        position: absolute;
+        content: ' ';
+        z-index: -1;
+        top: -15px;
+        left: -15px;
+        background-color: #10b418;
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        animation-fill-mode: both;
+        -webkit-animation-fill-mode: both;
+        opacity: 0.6;
+        -webkit-animation: pulse 1s ease-out;
+        animation: pulse 1.8s ease-out;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+      }
+      
+      @-webkit-keyframes pulse {
+        0% {
+          -webkit-transform: scale(0);
+          opacity: 0;
+        }
+        25% {
+          -webkit-transform: scale(0.3);
+          opacity: 1;
+        }
+        50% {
+          -webkit-transform: scale(0.6);
+          opacity: 0.6;
+        }
+        75% {
+          -webkit-transform: scale(0.9);
+          opacity: 0.3;
+        }
+        100% {
+          -webkit-transform: scale(1);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes pulse {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        25% {
+          transform: scale(0.3);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(0.6);
+          opacity: 0.6;
+        }
+        75% {
+          transform: scale(0.9);
+          opacity: 0.3;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Divya Jagtap Mehendi & Rangoli</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+           
+
+          <li class="nav-item dropdown">
+            <li class="nav-item">
+              <a class="nav-link enabled" href="mehendigallary">Mehendi Gallary</a>
+            </li>
+          </li>
+          <li class="nav-item dropdown">
+            <li class="nav-item">
+              <a class="nav-link enabled" href="rangoligallary">Rangoli Gallary</a>
+            </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link enabled" href="/#about">About Us</a>
+          </li>
+          <li>
+           <a href="makeappoinment"> <button class="btn btn-default" type="button"><img src="data:image/png;base64,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" width="20" /> Book Appoinments</button>
+           </a></li>
+          <li>
+           <a href="tel:+91-91309-15892"> <button class="btn btn-default"  >
+                <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA9CAVmOOXyHQD1gLlyDBMQS1Eb57gNXFZSQ&usqp=CAU" width="30" /> Call Me
+           </button></a>
+          </li>
+        </ul>
+       {% block search %}{% endblock search %}
+      </div>
+    </nav>
+    
+
+    
+
+    <div class="phone-call">
+      <a href="https://api.whatsapp.com/send?phone=919130915892"><img src="https://cdn2.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-whatsapp-circle-512.png" width="50" alt="Call Now" title="Call Now" /></a>
+    </div>
+
+    {% block body %}{% endblock body %}
+   
+
+
+  
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

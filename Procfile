@@ -1,1 +1,1 @@
-web: gunicorn mehendi.wsgi --log-file -
+web: gunicorn mehendi.wsgi

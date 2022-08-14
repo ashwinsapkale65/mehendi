@@ -2,7 +2,7 @@ from distutils.command.upload import upload
 from operator import truediv
 from pyexpat import model
 from statistics import mode
-from tkinter.tix import Tree
+
 from urllib import request
 from django.db import models
 import uuid
